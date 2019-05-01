@@ -10,6 +10,8 @@ import android.widget.DatePicker;
 
 import java.util.Calendar;
 
+import br.com.etechoracio.etec_boaviagem.enums.Utils.DateTimeUtils;
+
 public class ViagemActivity extends AppCompatActivity {
 
     private Button btndataChegada;
@@ -27,15 +29,13 @@ public class ViagemActivity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener datachegada = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker datePicker, int ano, int mes, int dia) {
-            String data = String.valueOf(dia) + "/" + String.valueOf(mes + 1) + "/" + String.valueOf(ano);
-            btndataChegada.setText(data);
+            btndataChegada.setText(DateTimeUtils.formatDate(dia,mes +1, ano));
         }
     };
     private DatePickerDialog.OnDateSetListener datasaida = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker datePicker, int ano, int mes, int dia) {
-            String data = String.valueOf(dia) + "/" + String.valueOf(mes + 1) + "/" + String.valueOf(ano);
-            btndataSaida.setText(data);
+            btndataSaida.setText(DateTimeUtils.formatDate(dia,mes +1, ano));
         }
     };
 
